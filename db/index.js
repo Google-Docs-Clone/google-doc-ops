@@ -1,13 +1,10 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 dotenv.config();
-
+mongoose.set('strictQuery', false);
 mongoose
     .connect(process.env.DB_CONNECT, { 
-        authSource: "admin",
-        user: "adminUser",
-        pass: "MongoPass",
-        useNewUrlParser: true 
+        useNewUrlParser: true
     })
     .then(() => {
         console.log('mongodb connected')

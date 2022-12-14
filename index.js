@@ -69,7 +69,7 @@ var client = new Client({
         password: "1idqXQYv97NwAFwO+08T"
     },
     tls: {
-        ca: fs.readFileSync('/root/google-doc-clone/http_ca.crt'),
+        ca: fs.readFileSync('/root/google-doc-ops/http_ca.crt'),
         rejectUnauthorized: false
     }
 });
