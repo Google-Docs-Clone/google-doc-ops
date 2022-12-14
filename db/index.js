@@ -3,7 +3,12 @@ const dotenv = require('dotenv')
 dotenv.config();
 
 mongoose
-    .connect(process.env.DB_CONNECT, { useNewUrlParser: true })
+    .connect(process.env.DB_CONNECT, { 
+        authSource: "admin",
+        user: "adminUser",
+        pass: "MongoPass",
+        useNewUrlParser: true 
+    })
     .then(() => {
         console.log('mongodb connected')
     })
