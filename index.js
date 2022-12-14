@@ -150,7 +150,7 @@ updateQueue = async () => {
         if (docData.hasOwnProperty(id)) {
             if (docData[id].queue.length > 0){
 
-                let update = Y.mergeUpdate(docData[id].queue)
+                let update = Y.mergeUpdates(docData[id].queue)
                 Y.applyUpdate(docData[id].doc, update)
                 docData[id].queue = []
 
@@ -196,7 +196,7 @@ setInterval(updateQueue, 10000);
 
 var server = http.createServer(app);
 
-let port = 6000
+let port = 3000
 
 server.listen(port, function(){
     console.log("server is running on port", port);
