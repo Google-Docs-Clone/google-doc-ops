@@ -11,7 +11,7 @@ const dotenv = require('dotenv')
 dotenv.config();
 
 const db = require('./db')
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))5
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const session = require('express-session')
 const mongoDBStore = require('connect-mongodb-session')(session)
