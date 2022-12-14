@@ -64,10 +64,10 @@ const Y = require('yjs')
 const { Client } = require('@elastic/elasticsearch');
 
 var client = new Client({
-    node: 'https://209.151.155.155:9200',
+    node: 'https://209.151.152.71:9200',
     auth: {
         username: 'elastic',
-        password: "6KPmCS=hL*Pnyc-hcJ1y"
+        password: "1idqXQYv97NwAFwO+08T"
     },
     tls: {
         ca: fs.readFileSync('/root/google-doc-clone/http_ca.crt'),
