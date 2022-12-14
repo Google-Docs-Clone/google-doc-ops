@@ -86,7 +86,7 @@ app.get('/api/connect/:id', auth, (req, res) => {
     let id = req.params.id;
 
     if (!docData.hasOwnProperty(id)){
-        docData[doc._id] = {
+        docData[id] = {
             clients: [],
             doc: new Y.Doc(),
             queue: []
@@ -111,10 +111,10 @@ app.get('/api/connect/:id', auth, (req, res) => {
         res.write(`id:${id}\ndata:${JSON.stringify({session_id: req.session.token, name: req.session.name, cursor: {index: client.cursor.index, length: client.cursor.length}, id: client.name})}\nevent:presence\n\n`);
     })
 
-    docData[doc._id].doc.on('update', (update) => {
+    docData[id].doc.on('update', (update) => {
         update = Array.from(update)
-        docData[doc._id].clients.forEach(client => {
-            client.res.write(`id:${doc._id}\ndata:${JSON.stringify({update: update})}\nevent:update\n\n`)
+        docData[id].clients.forEach(client => {
+            client.res.write(`id:${id}\ndata:${JSON.stringify({update: update})}\nevent:update\n\n`)
         });
     })
 
@@ -196,7 +196,7 @@ setInterval(updateQueue, 10000);
 
 var server = http.createServer(app);
 
-let port = 3000
+let port = 6000
 
 server.listen(port, function(){
     console.log("server is running on port", port);
